@@ -3,36 +3,23 @@ Here you can learn everything about LowPie, no need to click through a bunch of 
 
 > **NOTE**: The name is not "loopy" but "Low-Pie". A lot of people mistake this.
 
-# Creating a LowPie file and setting up Python (LowPie Source Code)
+> **NOTE**: if you want to learn how to actually code or script with LowPie go to `Codes.md`
+
+# Running using SourceCode
+## Creating a LowPie file and setting up Python (LowPie Source Code)
 First, create a `main.lp` file. You can replace **main** with any name you like.
 
-### To run `main.lp` using the source code
+## To run `main.lp` using the source code
 You will need Python installed. Version **3.13** is recommended, but anything above **3.10** should work.
 
-Next, install all the packages used in `LowPie.py`:
-
-```python
-from lupa.lua54 import LuaRuntime
-import EasyJson as json
-import sys
-import easygui as path_gui
-import tkinter.messagebox as mbox
-import rich
-import os
-import random
-```
-
-### Package breakdown
+## install all the packages listed here:
 - `pip install lupa` - Required for Lua integration.
-- **EasyJson** - Already included in the project. No need to install.
 - `pip install easygui` - For GUI dialogs.
-- **tkinter** - Comes built-in with Python 3.13. No need to install.
 - `pip install rich` - For fancy console output.
-- **os** - Built-in module. No need to install.
-- **random** - Built-in module. No need to install.
-- **sys** - Built-in module. No need to install.
+- `pip install json` - For Json loading (Data.json)
+- `pip install pyperclip` - For copying/pasting
 
-# Running LowPie
+## Running LowPie
 After creating your `main.lp` file, open CMD and run the following command:
 
 > **NOTE:** Replace the names with your actual file paths.
@@ -54,118 +41,30 @@ If Python is already in your system environment variables:
 python LowPie.py main.lp
 ```
 
-# Coding and Scripting
-Lets break down each code.
 
-First, you can simply run:
-```lua
-help()
-```
-This code will show you every custom function that LowPie can run.
 
-Here is a breakdown of each code and an example usage.
-
-## print
-Prints a variable in the console.
-
-> You can only print one variable in its arguments.
-
-```lua
-print("Hello world!") -- Works fine
-print("Test", "Test 2") -- This is 2 variables which cause an error.
-```
-
-## input
-Asks the user to input something with a message.
-
-Example:
-```lua
-Name = input("Enter your name: ") -- Asks for user's name
-Password = input("Enter your password: ") -- Asks for user's password
-Message = fill("So your name is ", Name, "\n", "And your password is ", Password, ", Right?")
-print(message)
-```
-```
-CMD> python LowPie.py main.lp
-Enter your name: NR
-Enter your password: MySecretPassword
-So your name is NR
-And your password is MySecretPassword, Right?
-```
-
-## fill
-You can put any variables you want and it will return them sorted in order.
-
-```lua
-Name = "Your name"
-Age = 20 -- Random age, I'm not 20.
-fill("Your name is: ", Name, "!")
-fill("You are ", Age, " years old.")
--- Outputs:
--- Your name is: Your name!
--- You are 20 years old.
-```
-
-## exit
-Exits the code immediately.
-
-```lua
-print("You should see this")
-exit()
-print("You should not see this, because the program has stopped.")
-```
-
-## colored_print
-Same as print but has an extra argument for the color.
-
-> These are the only colors you can use:
-- black
-- blue
-- green
-- aqua
-- red
-- purple
-- yellow
-- white
-- gray
-- light blue
-- light green
-- light aqua
-- light red
-- light purple
-- light yellow
-- bright white
-
-```lua
-print("Error!", "red")
-print("Warning!", "yellow")
-print("Nice!", "green")
-```
-
-> **Note**: I have not tested the "light + color" options. It would be great if someone could test them for me. Thank you to whoever tests them.
-
-## MyHome
-Returns the path where `main.lp` is located.
-
-Example:
-Imagine your `main.lp` is in:
-`D:\Lua\MyLua\main.lp`
-
-If you do:
-```lua
-print(MyHome)
-```
-You will get: `D:\Lua\MyLua\`
-
-You can use it in absolute paths like:
-```lua
-Path = fill(MyHome, "\\Example.py")
-```
-You can do many cool things with it.
-
-# Version Notice (0.2)
+# Version Notices 
+## V 0.2
 That is all for now. There are not many more functions or variables than this.
 
 But in the future, sooner or later, I will be adding many more functions. You will be able to create your own GUIs, systems, games, file controls, and a lot of other stuff.
 
 But for now, this is the full version.
+
+## V 0.34
+- `for loop` now work normally in LowPie like its just python code!
+```lua
+potato = {"A", "b", "c"}
+
+for i in list(potato) do
+    print(i)
+end
+```
+Based on the few researches I've made (using Ai so dont blame me if I was mistaken)
+This code will work 100% Using LowPie.
+
+- Added Converters (few not much :\)
+- Added File Managers.
+- Fixed few bugs
+- Moved the codes from `Manual.md` to `Codes.md`
+This Manual.md is so random, so i think i'll orginize it more.

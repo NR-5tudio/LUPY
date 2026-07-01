@@ -5,6 +5,7 @@ import tkinter.messagebox as mbox
 import rich
 import os
 import random
+import pyperclip
 lua = LuaRuntime(unpack_returned_tuples=True)
 
 # Anything under this line is just a package with the code.
@@ -54,8 +55,18 @@ def GetWorkPlace(path):
     return os.path.dirname(path)
 
 def ShowHelp(Functions: list):
-    for func in Functions:
-        rich.print(f"[blue]{func["name"]}[/blue] - [yellow]{func["description"]}[/yellow]\n")
+    copy = False
+    if copy == False:
+        rich.print("[yellow]NOTE: There's no examples in the help() function\nIf you want actual examples go to `https://github.com/NR-5tudio/Json-Engine/blob/main/Codes.md`[/yellow]\n\n\n")
+        for func in Functions:
+            
+            rich.print(f"[blue]# {func["name"]}[/blue]\n[yellow]{func["description"]}[/yellow]\n")
+    else:
+        SCRIPT = ""
+        for func in Functions:
+            try: SCRIPT += (f"# {func["name"]}\n{func["description"]}\n```lua\n{func["example"]}\n```\n\n\n")
+            except: continue
+        pyperclip.copy(SCRIPT)
 
 def main():
     # Get main.lua
@@ -90,48 +101,54 @@ def main():
 
     # Adding Main Functions & Variables
     functions = []
-
     Addon("print", output)
     functions.append({
         "name": "print", 
-        "description": "Prints text to the console\nExample: print('Hello world')"
+        "description": "Prints text to the console",
+        "example": "print('Hello world')"
     })
 
     Addon("exit", exiting_lua)
     functions.append({
         "name": "exit", 
-        "description": "Stops the program immediately\nExample: exit()"
+        "description": "Stops the program immediately",
+        "example": "exit()"
     })
 
     Addon("input", inputing_lua)
     functions.append({
         "name": "input", 
-        "description": "Asks the user for input and returns it as a string\nExample: name = input('What is your name?')"
+        "description": "Asks the user for input and returns it as a string",
+        "example": "name = input('What is your name?')"
     })
 
     Addon("fill", formating_lua)
     functions.append({
         "name": "fill", 
-        "description": "Formats a string with variables\nExample: fill('Hello ', Name, '!')"
+        "description": "Formats a string with variables",
+        "example": "fill('Hello ', Name, '!')"
     })
 
     Addon("colored_print", colored_output)
     functions.append({
         "name": "colored_print", 
-        "description": "Prints text in color\nExample: colored_print('Error!', 'red')"
+        "description": "Prints text in color",
+        "example": "colored_print('Error!', 'red')"
     })
 
     Addon("MyHome", GetWorkPlace(File))
     functions.append({
         "name": "MyHome", 
-        "description": "Value of the current working directory (where your code is running)\nExample: print(MyHome)"
+        "description": "Value of the current working directory (where your code is running)",
+        "example": "print(MyHome)"
     })
-    
 
-
-    
     Addon("list", values)
-
+    functions.append({
+        "name": "list", 
+        "description": "Tells the [red]for loop[/red] that THIS variable is a list",
+        "example": "for item in list(MY_LIST) do\n    print(item)\nend"
+    })
     FileManager.Add_Addons(Addon, functions)
     Converters.Add_Addons(Addon, functions)
 

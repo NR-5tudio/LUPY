@@ -58,41 +58,48 @@ def Add_Addons(Addon: callable, funcs):
     Addon("read_file", read_file)
     funcs.append({
         "name": "read_file", 
-        "description": "Reads a file and returns its content\nFileContent = read_file('Test.txt')\nprint(FileContent)"
+        "description": "Reads a file and returns its content",
+        "example": "FileContent = read_file('Test.txt')\nprint(FileContent)"
     })
     
     Addon("write_file", write_file)
     funcs.append({
         "name": "write_file", 
-        "description": "Writes content to a file (overwrites if exists)\nwrite_file('Test.txt', 'Hello World!')"
+        "description": "Writes content to a file (overwrites if exists)",
+        "example": "write_file('Test.txt', 'Hello World!')"
     })
     
     Addon("append_file", append_file)
     funcs.append({
         "name": "append_file", 
-        "description": "Adds content to the end of a file\nappend_file('Log.txt', 'New entry!')"
+        "description": "Adds content to the end of a file",
+        "example": "append_file('Log.txt', 'New entry!')"
     })
     
     Addon("file_exists", file_exists)
     funcs.append({
         "name": "file_exists", 
-        "description": "Checks if a file exists\nif file_exists('Config.json') then\n    print('Config found!')\nend"
+        "description": "Checks if a file exists",
+        "example": "if file_exists('Config.json') then\n    print('Config found!')\nend"
     })
     
     Addon("list_files", list_files)
     funcs.append({
         "name": "list_files", 
-        "description": "Lists all files and folders in a directory\nFiles = list_files('Assets/')\nfor i, File in ipairs(Files) do\n    print(File)\nend"
+        "description": "Lists all files and folders in a directory",
+        "example": "Files = list_files('Assets/')\nfor i, File in ipairs(Files) do\n    print(File)\nend"
     })
     
     Addon("delete_file", delete_file)
     funcs.append({
         "name": "delete_file", 
-        "description": "Deletes a file\ndelete_file('OldSave.txt')"
+        "description": "Deletes a file",
+        "example": "delete_file('OldSave.txt')"
     })
     
     Addon("create_folder", create_folder)
     funcs.append({
         "name": "create_folder", 
-        "description": "Creates a new folder\ncreate_folder('NewAssets/')"
+        "description": "Creates a new folder",
+        "example": "create_folder('NewAssets/')"
     })

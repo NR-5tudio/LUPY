@@ -13,7 +13,7 @@ print(fill("Your name is: ", Name, "!"))
 -- output will be -> Your name is: NR!
 ```
 
-# Versions
+# Releases
 No releases yet.
 
 # License
