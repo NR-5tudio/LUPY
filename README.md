@@ -1,5 +1,6 @@
 
 # What is LUPY?
+BEFORE WE DIVE IN, IT IS SAID "LowPie" not "Loopy" OKAYY?? ty :3
 LUPY is a new way to run Lua using Python!
 
 Here's a simple example:
