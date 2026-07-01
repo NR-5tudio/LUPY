@@ -1,5 +1,4 @@
 from lupa.lua54 import LuaRuntime
-import Core.EasyJson as json
 import sys
 import easygui as path_gui
 import tkinter.messagebox as mbox
@@ -7,6 +6,14 @@ import rich
 import os
 import random
 lua = LuaRuntime(unpack_returned_tuples=True)
+
+# Anything under this line is just a package with the code.
+# You do not need to install any of the listed below:
+import Core.EasyJson as json
+import Core.FileManager as FileManager; FileManager.lua = lua
+import Core.Converters as Converters; Converters.lua = lua
+
+
 
 # These are the main functions:
 
@@ -25,6 +32,16 @@ def colored_output(Text, Color):
 def exiting_lua():
     sys.exit()
 
+def values(t=None, abc=None):
+    i = 0
+    def inner(abce=None, abca=None):
+        nonlocal i
+        i += 1
+        if i <= len(t):
+            return t[i]
+        return None
+    return inner
+
 def inputing_lua(Message):
     return input(Message)
 
@@ -35,9 +52,10 @@ def Addon(name: str, callback: callable):
 
 def GetWorkPlace(path):
     return os.path.dirname(path)
+
 def ShowHelp(Functions: list):
     for func in Functions:
-        print(f"{func["name"]} - {func["description"]}\n")
+        rich.print(f"[blue]{func["name"]}[/blue] - [yellow]{func["description"]}[/yellow]\n")
 
 def main():
     # Get main.lua
@@ -93,8 +111,8 @@ def main():
 
     Addon("fill", formating_lua)
     functions.append({
-        "name": "f", 
-        "description": "Formats a string with variables\nExample: f('Hello ', Name, '!')"
+        "name": "fill", 
+        "description": "Formats a string with variables\nExample: fill('Hello ', Name, '!')"
     })
 
     Addon("colored_print", colored_output)
@@ -108,6 +126,14 @@ def main():
         "name": "MyHome", 
         "description": "Value of the current working directory (where your code is running)\nExample: print(MyHome)"
     })
+    
+
+
+    
+    Addon("list", values)
+
+    FileManager.Add_Addons(Addon, functions)
+    Converters.Add_Addons(Addon, functions)
 
     Addon("help", lambda: ShowHelp(functions))
     if Data:
@@ -123,6 +149,8 @@ def main():
                 try: mini_script = open(f"{GetWorkPlace(File)}\\{package}", 'r').read(); lua.execute(mini_script)
                 except Exception as e: print(f"Error while reading '{package}':\n {e}")
         
+
+
     lua.execute(Script)
 
 
