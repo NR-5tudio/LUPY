@@ -1,7 +1,8 @@
 
-# What is LUPY?
-BEFORE WE DIVE IN, IT IS SAID "LowPie" not "Loopy" OKAYY?? ty :3
-LUPY is a new way to run Lua using Python!
+# What is LowPie?
+> BEFORE WE DIVE IN, IT IS SAID "Low Pie" not "Loopy" OKAYY?? ty :3
+
+LowPie is a new programming language that uses LUA syntax but in quite different way.
 
 Here's a simple example:
 ```lua
@@ -16,6 +17,6 @@ print(fill("Your name is: ", Name, "!"))
 No releases yet.
 
 # License
-You may use the releases in your own projects, but you are **not** allowed to copy, modify, share, or distribute the actual LUPY source code itself. The `data.json` file is freely editable, so you can customize behavior, including shipping your own Python code -> but the core LUPY code remains protected.
+You may use the releases in your own projects, but you are **not** allowed to copy, modify, share, or distribute the actual LowPie source code itself. The `data.json` file is freely editable, so you can customize behavior, including shipping your own Python code -> but the core LowPie code remains protected.
 
 **All rights reserved. Full credit goes to the owner, NR.**

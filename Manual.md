@@ -1,15 +1,15 @@
 # Manual
-Here you can learn everything about LUPY, no need to click through a bunch of links. Just read what you want to learn and try it out yourself.
+Here you can learn everything about LowPie, no need to click through a bunch of links. Just read what you want to learn and try it out yourself.
 
 > **NOTE**: The name is not "loopy" but "Low-Pie". A lot of people mistake this.
 
-# Creating a LUPY file and setting up Python (LUPY Source Code)
-First, create a `main.lua` file. You can replace **main** with any name you like.
+# Creating a LowPie file and setting up Python (LowPie Source Code)
+First, create a `main.lp` file. You can replace **main** with any name you like.
 
-### To run `main.lua` using the source code
+### To run `main.lp` using the source code
 You will need Python installed. Version **3.13** is recommended, but anything above **3.10** should work.
 
-Next, install all the packages used in `LUPY.py`:
+Next, install all the packages used in `LowPie.py`:
 
 ```python
 from lupa.lua54 import LuaRuntime
@@ -32,26 +32,26 @@ import random
 - **random** - Built-in module. No need to install.
 - **sys** - Built-in module. No need to install.
 
-# Running Lua
-After creating your `main.lua` file, open CMD and run the following command:
+# Running LowPie
+After creating your `main.lp` file, open CMD and run the following command:
 
 > **NOTE:** Replace the names with your actual file paths.
 
 ```
-{PythonPath} LUPY.py {LuaFilePath}
+{PythonPath} LowPie.py {LowPieFilePath}
 ```
 
 **Example:**
 ```
-D:\Python\python.exe D:\downloads\LUPY.py D:\MyLua\main.lua
+D:\Python\python.exe D:\downloads\LowPie.py D:\MyLowPie\main.lp
 ```
 
 If Python is already in your system environment variables:
 
-> **TIP:** You can open CMD in your project folder and simply run `LUPY.py` without the full path.
+> **TIP:** You can open CMD in your project folder and simply run `LowPie.py` without the full path.
 
 ```
-python LUPY.py main.lua
+python LowPie.py main.lp
 ```
 
 # Coding and Scripting
@@ -61,7 +61,7 @@ First, you can simply run:
 ```lua
 help()
 ```
-This code will show you every custom function that LUPY can run.
+This code will show you every custom function that LowPie can run.
 
 Here is a breakdown of each code and an example usage.
 
@@ -86,7 +86,7 @@ Message = fill("So your name is ", Name, "\n", "And your password is ", Password
 print(message)
 ```
 ```
-CMD> python LUPY.py main.lua
+CMD> python LowPie.py main.lp
 Enter your name: NR
 Enter your password: MySecretPassword
 So your name is NR
@@ -145,11 +145,11 @@ print("Nice!", "green")
 > **Note**: I have not tested the "light + color" options. It would be great if someone could test them for me. Thank you to whoever tests them.
 
 ## MyHome
-Returns the path where `main.lua` is located.
+Returns the path where `main.lp` is located.
 
 Example:
-Imagine your `main.lua` is in:
-`D:\Lua\MyLua\main.lua`
+Imagine your `main.lp` is in:
+`D:\Lua\MyLua\main.lp`
 
 If you do:
 ```lua
